@@ -1,0 +1,231 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API Lugares",
+        "description": "Documentación de API Lugares",
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:8080",
+            "description": "Servidor local"
+        }
+    ],
+    "paths": {
+        "/api/lugares": {
+            "get": {
+                "tags": [
+                    "Lugares"
+                ],
+                "summary": "Lista todos los lugares",
+                "operationId": "1aabcd6c899b5a6b8a84ec1f20b206d3",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "Filtrar por nombre",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Lista de lugares",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Lugares"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Lugares"
+                ],
+                "summary": "Crear un lugar",
+                "operationId": "551c75073e1dc510bb42ca2640108bc0",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Lugares"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Lugar creado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Lugares"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/lugares/{id}": {
+            "get": {
+                "tags": [
+                    "Lugares"
+                ],
+                "summary": "Mostrar un lugar específico",
+                "operationId": "fb8d6919a0d779928ea094d3f67e7a68",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Detalle del lugar",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Lugares"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Lugar no encontrado"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Lugares"
+                ],
+                "summary": "Actualizar un lugar",
+                "operationId": "dce871953262a0450b4d556752f0303b",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Lugares"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Lugar actualizado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Lugares"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Lugar no encontrado"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Lugares"
+                ],
+                "summary": "Eliminar un lugar",
+                "operationId": "161383a84c108ca2cd83a264bf871b07",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Lugar eliminado"
+                    },
+                    "404": {
+                        "description": "Lugar no encontrado"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Lugares": {
+                "description": "Esquema del modelo Lugares",
+                "required": [
+                    "name",
+                    "slug",
+                    "city",
+                    "state"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "name": {
+                        "type": "string",
+                        "example": "Plaza Central"
+                    },
+                    "slug": {
+                        "type": "string",
+                        "example": "plaza-central"
+                    },
+                    "city": {
+                        "type": "string",
+                        "example": "Asunción"
+                    },
+                    "state": {
+                        "type": "string",
+                        "example": "Central"
+                    },
+                    "created_at": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updated_at": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                },
+                "type": "object"
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Lugares",
+            "description": "CRUD de Lugares"
+        }
+    ]
+}
