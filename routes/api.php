@@ -2,8 +2,8 @@
 
 	use Illuminate\Support\Facades\Route;
 
-	use App\Http\Controllers\v1\LugaresController;
+	use App\Http\Controllers\v1\PlacesController;
 
-	Route::apiResource('lugares', LugaresController::class);
+	Route::apiResource('places', PlacesController::class);
 
  ?>
