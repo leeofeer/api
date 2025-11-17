@@ -158,11 +158,27 @@ curl -X POST http://localhost:8080/api/places \
   -d '{"name":"Test","slug":"test","city":"City","state":"State"}'
 ```
 
+---
+
+## ✅ Running Unit Tests
+Inside the app container, run:
+```bash
+php artisan test
+```
+This will execute all unit tests including `PlacesTest`.
+
+You should see output like:
+```
+Tests: 5 passed
+```
+
+
 ## 📂 Project Structure
 ```
 app/
  ├── Http/Controllers/v1/PlacesController.php
  ├── Models/Places.php
+tests/Unit/PlacesTest.php
 docker/
 nginx/
 docker-compose.yml
@@ -171,4 +187,5 @@ docker-compose.yml
 ---
 
 ## 📜 License
-Open for develo
+Open for development and free use.
+
