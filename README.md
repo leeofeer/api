@@ -35,7 +35,7 @@ This will start:
 
 Enter the application container:
 ```bash
-docker exec -it app bash
+docker exec -it api bash
 ```
 
 ### 2. Install dependencies
