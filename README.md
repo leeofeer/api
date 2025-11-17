@@ -4,16 +4,16 @@ This project provides a simple REST API for managing places, built with **Larave
 
 ---
 
-##  Requirements
+## 📦 Requirements
 - Docker & Docker Compose
 - Git
 
 ---
 
-##  Clone the Repository
+## 📥 Clone the Repository
 ```bash
-git clone https://github.com/leeofeer/api.git
-cd api
+git clone https://github.com/YOUR_USERNAME/YOUR_REPOSITORY.git
+cd YOUR_REPOSITORY
 ```
 
 ---
@@ -48,12 +48,38 @@ composer install
 cp .env.example .env
 ```
 
-### 4. Generate the application key
+### 4. Configure the `.env` file
+Edit the `.env` file to match your Docker setup. Example configuration:
+```
+APP_NAME=Laravel
+APP_ENV=local
+APP_KEY=base64:GENERATE_WITH_KEY_COMMAND
+APP_DEBUG=true
+APP_URL=http://localhost:8080
+
+LOG_CHANNEL=stack
+LOG_LEVEL=debug
+
+DB_CONNECTION=pgsql
+DB_HOST=db
+DB_PORT=5432
+DB_DATABASE=api
+DB_USERNAME=postgres
+DB_PASSWORD=12345
+
+BROADCAST_DRIVER=log
+CACHE_DRIVER=file
+QUEUE_CONNECTION=sync
+SESSION_DRIVER=file
+SESSION_LIFETIME=120
+```
+
+### 5. Generate the application key
 ```bash
 php artisan key:generate
 ```
 
-### 5. Run migrations
+### 6. Run migrations
 ```bash
 php artisan migrate
 ```
@@ -145,5 +171,4 @@ docker-compose.yml
 ---
 
 ## 📜 License
-Open for development and free use.
-
+Open for develo
